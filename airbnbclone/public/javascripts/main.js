@@ -1,3 +1,4 @@
+
 const seachbarRooms = document.querySelector("#main_seachbar_rooms");
 const seachbaractivity = document.querySelector("#main_seachbar_activity");
 //<==== 질문 =--->//
@@ -8,6 +9,7 @@ const mainPeople = main.querySelector(".main_people");
 const mainLocation = main.querySelector(".main_location");
 const mainNavbar = main.querySelector(".navbar_ul");
 const lists = mainNavbar.getElementsByTagName("li");
+
 const searchbar = (searchbarDocument) => {
   const location = searchbarDocument.firstElementChild;
   const input = searchbarDocument.querySelector("input");
@@ -67,4 +69,27 @@ lists[1].addEventListener("click", (e) => {
 lists[0].addEventListener("click", () => {
   roomClickHandler();
   searchbar(seachbarRooms);
+});
+
+
+const profileBtn = document.querySelector(".navbar_login_icons");
+const profileHeader = document.querySelector(".profileHeader");
+const body = document.querySelector("body");
+
+const profileBtnClickHandler = () => {
+  profileHeader.classList.toggle("hide");
+};
+const bodyClickHandler = () => {
+  profileHeader.classList.add("hide");
+  mainLocation.classList.add("hide");
+  mainPeople.classList.add("hide");
+};
+
+profileBtn.addEventListener("click", (e) => {
+  e.stopPropagation();
+  profileBtnClickHandler();
+});
+
+body.addEventListener("click", (e) => {
+  bodyClickHandler();
 });
